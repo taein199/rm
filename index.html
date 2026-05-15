@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Story FINAL</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Noto+Serif+KR:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #000000;
+      --text-primary: #a0a0a0;
+      --accent: #8b0000;
+      --accent-dark: #4a0000;
+      --box-bg: rgba(15, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #140202 0%, #000000 100%);
+      color: var(--text-primary);
+      font-family: 'Outfit', 'Noto Serif KR', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    #credit {
+      position: absolute;
+      top: 30px;
+      width: 100%;
+      text-align: center;
+      opacity: 0.8;
+      animation: fadeIn 2s ease-in;
+    }
+
+    #credit h1 {
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 600;
+      letter-spacing: 2px;
+      margin: 0;
+      color: var(--accent-dark);
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    }
+
+    #box-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      flex: 1;
+      padding: 20px;
+      margin-bottom: 80px;
+      /* Space for buttons */
+    }
+
+    #box {
+      width: 100%;
+      max-width: 1000px;
+      background: var(--box-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(139, 0, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      padding: clamp(30px, 5vw, 60px);
+      font-size: clamp(32px, 6vw, 64px);
+      /* 🔥 글씨 아주 크게 */
+      font-weight: 400;
+      line-height: 1.6;
+      color: #dfdfdf;
+      cursor: pointer;
+      border-radius: 20px;
+      min-height: clamp(300px, 40vh, 500px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.4s ease;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+      word-break: keep-all;
+    }
+
+    #box:hover {
+      box-shadow: 0 10px 40px rgba(139, 0, 0, 0.4);
+      border-color: rgba(139, 0, 0, 0.6);
+      transform: translateY(-2px);
+    }
+
+    #langButtons {
+      position: absolute;
+      bottom: 30px;
+      display: flex;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    button {
+      background: transparent;
+      color: var(--text-primary);
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(16px, 3vw, 20px);
+      font-weight: 600;
+      padding: 10px 24px;
+      border: 2px solid var(--accent-dark);
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    button:hover,
+    button:active {
+      background: var(--accent-dark);
+      color: #0b0c10;
+      box-shadow: 0 0 15px var(--accent-dark);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 0.7;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      #box {
+        align-items: flex-start;
+        padding-top: 50px;
+        font-size: clamp(28px, 7vw, 40px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <audio id="bgm" src="DAMNATION  LOBBY THEME (FORSAKEN).mp3" loop></audio>
+
+  <div id="credit">
+    <h1>2026년 5학년 4반 7번 김태인이 만듬!</h1>
+  </div>
+
+  <div id="box-container">
+    <div id="box">Click to Start / 클릭해서 시작</div>
+  </div>
+
+  <div id="langButtons">
+    <button onclick="setLang('kr')">한국어</button>
+    <button onclick="setLang('en')">English</button>
+  </div>
+
+  <script>
+    let lang = "en";
+    let index = -1;
+    let typing = false;
+
+    // 🔥 영어 전체
+    const full_en = `I was by the seashore when I first saw them.
+
+A regular-looking guest walking back and forth on the sand,
+as if they were pretending they were on a tightrope.
+
+At first, I hesitated, not wanting to disturb their odd ritual,
+until they stumbled on one of their shoes and fell into the water. Oof.
+
+Caught off-guard, I made my way over to help them up.
+Got my clothes wet in the process.
+
+As they stood, I asked for their name.
+I accidentally forgot that guests before Guest666 can’t really… talk.
+
+Quietly, they wrote their name in the sand with slight hesitation.
+
+Guest666.
+
+A really unfortunate name.
+
+They wrote that even though they looked like other guests,
+people barely approached them because of it.
+
+Seeing this, I asked if they wanted to hang out,
+maybe grab a cola or two.
+
+After all, it was a nice day out,
+and it looked like they could use the company.
+
+It made me so happy to see their once-flat expression
+grow into a small grin as they nodded their head.
+
+I took their hand as we left the beach,
+starting our new friendship.
+
+At first, we struggled to find any games we both liked.
+
+Sixer wasn’t too keen on outdoor activities as much as I was,
+but I was okay with it.
+We would just hang out over at my place a lot.
+
+I even got a cat that resembled Sixer a lot.
+Her name was Tac…
+admittedly not a very good name, per se, but we liked it at the time.
+
+We spent evenings chatting about all sorts of things:
+our lives, our hobbies…
+
+Sixer borrowed my notebook so they could form their thoughts more easily.
+
+We would talk for hours until we got too tired
+and slept on the floor. It was fun.
+
+At one point, while I was preparing to head to a big party,
+I was surprised by Sixer writing about wanting to come with me.
+
+Overjoyed, I gave them a hug
+and we drove as fast as we could to the venue.
+
+Folks from all around were having the time of their lives
+as we both entered the scene.
+
+I held Sixer’s hand gently as I showed them around,
+getting snacks and sodas as we enjoyed the moment.
+
+The music was lively, the food was good…
+It was a nice time.
+
+I stayed by their side for most of the night,
+not wanting to make them feel overwhelmed.
+
+Even if others were scared or uneasy about Sixer,
+we ignored it.
+
+When the music quieted down and the party came to a close,
+both of us were pretty tired,
+so I let Sixer drive us back to my place.
+
+We slept for a long while that day.
+
+It became a regular thing for me to see Sixer
+at my doorstep almost every other day.
+
+We basically did whatever with most of our time.
+
+Still rusty on it, though…
+
+Sixer also found some of my old gear from my hobbies:
+old dodgeball gear, dusty skateboard helmets…
+
+Dodgeball, paintball, skating…
+
+We would do all sorts of things whenever we could.
+
+It was exciting getting to enjoy something with them.
+
+Even if I had played some of these before,
+Sixer held their own in competitive games.
+
+They seemed so relieved
+to be someone who wasn’t that myth—
+someone who wasn’t a hacker or a beast.
+
+Laughing, playing, goofing around…
+
+Just me and my best friend.
+
+Me and Sixer.
+Sixer and me.
+
+Over time…
+
+This change worried me a little,
+as it made them lose more often than before.
+
+They started to look more disappointed or agitated
+whenever we headed home after a game.
+
+I tried telling them that it was all in good fun,
+but they remained quiet.
+
+They would often stare at both me and their own name…
+
+But after a particularly heavy loss,
+they disappeared.
+
+I didn’t hear from them for a while.
+
+The day they came back,
+they suddenly started to get way better at everything.
+
+They were faster, stronger than before.
+I could immediately tell.
+
+They looked really happy to be able to catch up to me.
+
+We were normally at the top of leaderboards together.
+
+I wanted to be happy for them,
+but the way their eyes looked at me whenever they won
+made me worried.
+
+Crimson red eyes that stared through me.
+
+Over time,
+that’s when I finally realized what was happening to them.
+
+They had been relying on what looked like a script.
+
+Its red color shined brightly as Sixer kept using it.
+
+What was once a way to catch up to me
+became a necessity to them.
+
+Like a vice they were unable to part with.
+
+I desperately wanted to say something,
+but I didn’t want to ruin what we had…
+
+That rumor they hated—
+it was becoming reality.
+
+Their name often caused leaderboards to glitch,
+and objects to break or disintegrate.
+
+I wanted to keep them low-profile,
+but often failed.
+
+Their reliance grew over time,
+leading others to notice.
+
+Parts of their torso looked like solidified code.
+
+My best friend had changed in front of me.
+
+From a quiet, kind-hearted friend…
+
+to someone who couldn’t let go of something
+that was actively hurting them.
+
+It felt like something overtook their mind.
+
+It was horrible…
+
+I should have told them to stop sooner.
+
+The problem was how badly it had affected their body.
+
+Every word they spoke caused the code to shift and grow.
+
+I said it shakily.
+
+I called out to them.
+They had to give it up.
+
+I told Sixer the script needed to be gone,
+that it was only getting worse.
+
+I didn’t want to see them like this.`;
+
+    // 🔥 한국어 전체 (분위기 살림)
+    const full_kr = `해변가에서 그 애를 처음 봤어.
+
+모래사장을 왔다 갔다 하는 평범한 게스트였지.
+마치 외줄 타기를 하는 척하는 것 같았어.
+
+처음에는 그 이상한 행동을 방해하고 싶지 않아서 망설였지만,
+그가 자기 신발에 걸려 물속으로 넘어지는 걸 보고 말았지. 앗차.
+
+깜짝 놀란 나는 서둘러 다가가 그 애를 일으켜 세워 주었어.
+그러느라 내 옷도 다 젖어버렸지만.
+
+그 애가 일어서자, 나는 이름을 물었어.
+Guest666 이전의 게스트들은 말을 할 수 없다는 사실을 깜빡했던 거야.
+
+그 애는 약간 머뭇거리더니, 모래 위에 조용히 자기 이름을 적었어.
+
+Guest666.
+
+정말 운이 없는 이름이었지.
+
+그 애는 자신이 다른 게스트들과 똑같이 생겼음에도 불구하고,
+그 이름 때문에 사람들이 좀처럼 다가오지 않는다고 적었어.
+
+그걸 보고 나는 같이 놀지 않겠냐고 물어봤지.
+콜라라도 한두 잔 하면서 말이야.
+
+날씨도 참 좋은 날이었고,
+무엇보다 그 애에겐 친구가 필요해 보였거든.
+
+무표정하던 그 애의 얼굴에
+작은 미소가 번지며 고개를 끄덕이는 걸 보니 정말 기뻤어.
+
+우리는 손을 잡고 해변을 떠났어.
+우리의 새로운 우정이 시작된 거야.
+
+처음에는 우리 둘 다 좋아하는 게임을 찾기가 쉽지 않았어.
+
+식서(Sixer)는 나만큼 야외 활동을 좋아하지는 않았지만,
+난 괜찮았어.
+우린 주로 우리 집에서 같이 시간을 보냈지.
+
+난 식서를 쏙 빼닮은 고양이도 한 마리 키우게 됐어.
+이름은 Tac이었는데...
+솔직히 썩 좋은 이름은 아니었지만, 그때 우린 그 이름이 마음에 들었어.
+
+우리는 저녁마다 이런저런 이야기를 나누며 보냈어.
+우리의 일상, 취미 같은 것들 말이야...
+
+식서는 자기 생각을 좀 더 쉽게 전하려고 내 공책을 빌려 쓰기도 했어.
+
+우리는 너무 졸릴 때까지 몇 시간이고 수다를 떨다가
+바닥에서 그대로 잠들곤 했어. 정말 재밌었지.
+
+한번은 내가 큰 파티에 갈 준비를 하고 있었는데,
+식서가 자기도 같이 가고 싶다고 적어서 보여주는 바람에 깜짝 놀랐어.
+
+너무 기뻐서 난 식서를 꼭 안아주었고,
+우리는 파티장으로 최대한 빨리 차를 몰고 갔어.
+
+사방에서 사람들이 저마다 최고로 즐거운 시간을 보내고 있었고,
+우리도 그 틈으로 들어갔어.
+
+나는 식서에게 이곳저곳을 구경시켜 주며 손을 가볍게 잡아주었고,
+간식과 음료수를 챙겨 먹으며 그 순간을 즐겼지.
+
+음악도 신났고 음식도 맛있었어...
+정말 즐거운 시간이었지.
+
+나는 밤새도록 식서 곁에 머물렀어.
+그 애가 부담을 느끼게 하고 싶지 않았거든.
+
+다른 사람들이 식서를 무서워하거나 불편해하더라도,
+우리는 신경 쓰지 않았어.
+
+음악이 잦아들고 파티가 끝날 무렵이 되자,
+우리는 둘 다 꽤 지쳐 있었고,
+그래서 식서가 운전을 해서 우리 집으로 돌아오게 했지.
+
+그날 우리는 아주 오랫동안 푹 잤어.
+
+그 후로 식서가 이틀에 한 번꼴로 우리 집 문 앞에 서 있는 건
+아주 자연스러운 일상이 되었어.
+
+우리는 함께 있는 대부분의 시간 동안 그냥 이것저것 하며 보냈어.
+
+아직 좀 서툴긴 했지만 말이야...
+
+식서는 내 취미 용품들 중에서 낡은 장비들을 찾아내기도 했어.
+오래된 피구 장비, 먼지 쌓인 스케이트보드 헬멧 같은 것들...
+
+피구, 페인트볼, 스케이트 타기...
+
+우리는 할 수 있을 때마다 온갖 활동들을 같이 했어.
+
+그 애와 무언가를 함께 즐긴다는 건 정말 신나는 일이었지.
+
+내가 예전에 이런 걸 해본 적이 있었어도,
+식서는 경쟁 게임에서 꽤 잘 버텨냈어.
+
+그 애는 정말 안도하는 것 같았어.
+자신이 그 무서운 괴담 속 존재가 아니라는 사실에 말이야.
+해커도 아니고, 괴물도 아닌 평범한 사람이라는 것에.
+
+같이 웃고, 놀고, 장난치고...
+
+그저 나와 내 가장 친한 친구.
+
+나와 식서.
+식서와 나.
+
+하지만 시간이 흐르면서...
+
+어떤 변화가 나를 조금 걱정스럽게 만들었어.
+그것 때문에 식서가 예전보다 지는 일이 잦아졌거든.
+
+게임을 끝내고 집에 갈 때마다
+식서는 점점 더 실망하거나 불안해하는 것 같았어.
+
+나는 그냥 재미로 하는 거니까 괜찮다고 말해주려 했지만,
+식서는 아무 말도 하지 않았어.
+
+그리고 종종 나와 자기 이름표를 번갈아 쳐다보곤 했지...
+
+그러다 유난히 크게 패배했던 날 이후,
+식서는 사라져 버렸어.
+
+한동안 식서에게선 아무 소식도 없었지.
+
+그러다 그 애가 다시 돌아온 날,
+식서는 갑자기 모든 걸 엄청나게 잘하기 시작했어.
+
+예전보다 훨씬 빠르고 강력해졌지.
+난 단번에 알아챌 수 있었어.
+
+식서는 드디어 나를 따라잡을 수 있게 되었다며 진심으로 기뻐 보였어.
+
+우리는 보통 순위표 맨 꼭대기에 나란히 이름을 올리곤 했지.
+
+나도 식서를 위해 기뻐해 주고 싶었지만,
+그 애가 이길 때마다 나를 쳐다보는 눈빛이
+나를 불안하게 만들었어.
+
+나를 꿰뚫어 보는 듯한 새빨간 눈동자.
+
+시간이 지날수록,
+나는 식서에게 무슨 일이 일어나고 있는지 마침내 깨달았어.
+
+그 애는 스크립트 같은 것에 의존하고 있었던 거야.
+
+식서가 그걸 계속 사용할 때마다 붉은빛이 선명하게 빛났어.
+
+처음엔 나를 따라잡기 위한 수단에 불과했던 것이
+이제는 없어서는 안 될 존재가 되어버린 거지.
+
+도저히 끊어낼 수 없는 나쁜 버릇처럼 말이야.
+
+나는 어떻게든 말리고 싶었지만,
+우리의 관계를 망치고 싶지 않았어...
+
+식서가 그토록 싫어했던 그 소문이,
+점점 현실이 되어가고 있었지.
+
+식서의 이름표는 종종 순위표에 오류를 일으켰고,
+주변 물건들을 부수거나 산산조각 냈어.
+
+나는 어떻게든 식서가 눈에 띄지 않게 하려 했지만,
+자주 실패했어.
+
+스크립트에 대한 의존도는 시간이 갈수록 심해졌고,
+결국 다른 사람들도 눈치채기 시작했어.
+
+식서의 몸 일부는 마치 굳어버린 코드 덩어리처럼 보였어.
+
+내 가장 친한 친구가 내 눈앞에서 변해버린 거야.
+
+조용하고 마음씨 따뜻했던 친구에서...
+
+자신을 갉아먹는 것을
+스스로 놓지 못하는 사람으로.
+
+마치 무언가가 식서의 정신을 집어삼킨 것 같았어.
+
+정말 끔찍했어...
+
+진작에 그만두라고 말했어야 했는데.
+
+문제는 그 스크립트가 식서의 몸을 얼마나 끔찍하게 망가뜨렸냐는 것이었어.
+
+식서가 말을 할 때마다 그 코드가 꿈틀거리며 자라났어.
+
+나는 떨리는 목소리로 말했어.
+
+식서를 불렀어.
+이제 그만 포기해야 한다고.
+
+나는 식서에게 그 스크립트를 버려야 한다고,
+이대로 가면 상황만 더 나빠질 뿐이라고 말했어.
+
+나는 내 친구가 이런 모습이 되는 걸 원치 않았으니까.`;
+
+    // 🔥 문장 분리
+    function splitText(text) {
+      return text.replace(/\n/g, " ").split(/(?<=[.!?…])\s+/);
+    }
+
+    const en = splitText(full_en);
+    const kr = splitText(full_kr);
+
+    const box = document.getElementById("box");
+
+    function typeText(text) {
+      box.textContent = "";
+      typing = true;
+      let i = 0;
+
+      const interval = setInterval(() => {
+        box.textContent += text[i];
+        i++;
+        if (i >= text.length) {
+          clearInterval(interval);
+          typing = false;
+        }
+      }, 8);
+    }
+
+    function setLang(l) {
+      lang = l;
+      index = -1;
+      box.textContent = l === 'kr' ? "클릭해서 시작" : "Click to Start";
+    }
+
+    box.addEventListener("click", () => {
+      const bgm = document.getElementById("bgm");
+      if (bgm.paused) {
+        bgm.play();
+      }
+
+      if (typing) return;
+
+      index++;
+      const arr = lang === "kr" ? kr : en;
+
+      if (index >= arr.length) index = 0;
+
+      typeText(arr[index]);
+    });
+  </script>
+
+</body>
+
+</html>
